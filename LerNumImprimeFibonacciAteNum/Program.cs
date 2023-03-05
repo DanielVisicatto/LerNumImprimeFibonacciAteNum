@@ -1,4 +1,5 @@
-﻿Console.Write("Digite um número para trazer Fibonacci: ");
+﻿int fbnt1 = 1, fbnt2 = 1, proxFbnt = 0;
+Console.Write("Digite um número para trazer Fibonacci: ");
 if (!int.TryParse(Console.ReadLine(), out var number))
 {
     Console.WriteLine("Inteiro por favor!");
@@ -16,8 +17,7 @@ else
     Console.WriteLine("Você digitou {0}\n" +
         "Sequência Fibonacci até {0}...", number);
 
-    //os primeiros dois valores não mudam...
-    int fbnt1 = 1, fbnt2 = 1, proxFbnt = 0;
+    
     Console.Write("{0}, {1}", fbnt1, fbnt2);// imprimindo os 2 primeiros valores...
     proxFbnt = fbnt1 + fbnt2;//calculando o proximo da sequencia...
 
@@ -28,12 +28,16 @@ else
         //imprimindo o proximo fibonacci...
         //Console.Write(", {0}", proxFbnt);
         //andando pela sequencia e imprimindo proximo...
-        fbnt1 = fbnt2;
-        fbnt2 = proxFbnt;
-        proxFbnt = fbnt1 + fbnt2;
+        TrocaValorEPegaProx();
         Console.Write(", {0}", proxFbnt);
         cont++;
     }
+}
+void TrocaValorEPegaProx()
+{
+    fbnt1 = fbnt2;
+    fbnt2 = proxFbnt;
+    proxFbnt = fbnt1 + fbnt2;
 }
 //Console.Write("Digite um número para trazer Fibonacci: ");
 //if(!int.TryParse(Console.ReadLine(), out var number))
